@@ -24,9 +24,13 @@ if SERVER then
   end)
 
   hook.Add("GMAU ShouldWin", "JesterWin", function(team)
-    if team.id == TEAM_JESTER and shouldWin then
-      shouldWin = false
-      return true
+    if team.id == TEAM_JESTER then
+      if shouldWin then
+        shouldWin = false
+        return true
+      else
+        return false
+      end
     end
   end)
 end
