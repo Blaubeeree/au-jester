@@ -12,3 +12,20 @@ ROLE.defaultCVarData = {
   minPlayers = 7,
   random = 50
 }
+
+if SERVER then
+  local shouldWin = false
+
+  hook.Add("GMAU MeetingEnd", "JesterWin", function(reason, ejected)
+    if ejected and ejected.entity:GetRole() == JESTER then
+      shouldWin = true
+    end
+  end)
+
+  hook.Add("GMAU ShouldWin", "JesterWin", function(team)
+    if team.id == TEAM_JESTER and shouldWin then
+      shouldWin = false
+      return true
+    end
+  end)
+end
