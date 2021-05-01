@@ -2,6 +2,7 @@ roles.CreateTeam(ROLE.name, {
   color = Color(245, 48, 155)
 })
 
+ROLE.desc = "Get voted out to win."
 ROLE.color = Color(245, 48, 155)
 ROLE.defaultTeam = TEAM_JESTER
 ROLE.HasTasks = false
